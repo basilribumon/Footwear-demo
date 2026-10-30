@@ -36,3 +36,7 @@ Only use the public anon/publishable key in Vercel. Never put a Supabase `servic
 ## Product sizes and colour variants
 
 The admin product form now stores a numeric size list and colour variants for each product. On the existing Supabase project, run `supabase/migrations/20261031_product_variants.sql` once in the Supabase SQL Editor before deploying this version. Fresh project setup includes these columns in `supabase/schema.sql`.
+
+## Admin password recovery
+
+Before using password recovery on the deployed site, add `https://footwear-amber.vercel.app/reset-password.html` under Supabase Authentication → URL Configuration → Redirect URLs. In Admin sign in, enter the account email and choose “Forgot password? Send a reset email.” The recovery link opens the reset page and sets the password through Supabase Auth.

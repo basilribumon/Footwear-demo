@@ -9,7 +9,8 @@ export default defineConfig({
     rollupOptions:{
       input:{
         storefront:resolve(root,'index.html'),
-        admin:resolve(root,'admin.html')
+        admin:resolve(root,'admin.html'),
+        passwordReset:resolve(root,'reset-password.html')
       }
     }
   }
