@@ -1,0 +1,3 @@
+[functions.create-admin]
+# The function validates the user's Supabase session with @supabase/server.
+verify_jwt = false

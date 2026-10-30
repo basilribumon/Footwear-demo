@@ -40,3 +40,9 @@ The admin product form now stores a numeric size list and colour variants for ea
 ## Admin password recovery
 
 Before using password recovery on the deployed site, add `https://footwear-amber.vercel.app/reset-password.html` under Supabase Authentication → URL Configuration → Redirect URLs. In Admin sign in, enter the account email and choose “Forgot password? Send a reset email.” The recovery link opens the reset page and sets the password through Supabase Auth.
+
+## Creating additional admins
+
+The Admin page includes an “Add admin” form. Creating Auth users requires a server-side Supabase Edge Function; it cannot safely use a privileged key in browser code. Deploy `supabase/functions/create-admin/index.ts` to the same Supabase project (the included `supabase/config.toml` configures its auth mode), then sign in as an existing store admin and use **＋ Add admin**. The function verifies the caller’s Supabase session, checks `is_store_admin()`, creates the Auth account, and grants it admin access. Set a temporary password and share it with the new admin privately; they should use password recovery to choose their own password.
+
+Deploy from a terminal with the Supabase CLI linked to the project: `npx supabase login`, `npx supabase link --project-ref YOUR_PROJECT_REF`, then `npx supabase functions deploy create-admin`. Keep all service-role/secret keys inside Supabase server-side secrets; never add them to Vercel browser variables or frontend code.
