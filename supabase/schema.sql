@@ -10,6 +10,8 @@ create table if not exists public.products (
   color text not null default '',
   image text not null,
   swatches jsonb not null default '[]'::jsonb,
+  sizes jsonb not null default '[6,7,8,9,10,11]'::jsonb,
+  colors jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

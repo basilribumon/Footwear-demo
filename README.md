@@ -33,3 +33,6 @@ Only use the public anon/publishable key in Vercel. Never put a Supabase `servic
 - Without Supabase configuration, the admin remains in local demo mode and saves changes only in that browser.
 - Checkout opens WhatsApp with a prefilled order message. Analytics record checkout handoffs as inquiries, not confirmed or paid orders.
 - Admin product writes and inquiry reads require an authenticated user listed in `public.admin_users`.
+## Product sizes and colour variants
+
+The admin product form now stores a numeric size list and colour variants for each product. On the existing Supabase project, run `supabase/migrations/20261031_product_variants.sql` once in the Supabase SQL Editor before deploying this version. Fresh project setup includes these columns in `supabase/schema.sql`.
